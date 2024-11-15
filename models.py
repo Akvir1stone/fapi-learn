@@ -7,6 +7,7 @@ class Lot(BaseModel):
     picture: HttpUrl
     currentPrice: int
     lastPriceTime: datetime.time
+    buyTimer: int
     winner: str = None
     owner: str
     sold: bool = False
