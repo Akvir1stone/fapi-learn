@@ -9,7 +9,14 @@ app = FastAPI()
 async def home_page():
     return responses.Response(status_code=status.HTTP_200_OK)
 
+
 # page with list of currently available lots
+@app.get('/lots')
+async def lots_list():
+    # queryset = request to db for queryset of not sold lots
+    # variable content = queryset converted to JSON
+    return responses.JSONResponse(content='{}', status_code=status.HTTP_200_OK)
+
 
 # lot menu for buyer
     # post with new price
