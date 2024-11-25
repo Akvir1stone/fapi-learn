@@ -13,3 +13,9 @@ class Lot(BaseModel):
     sold: bool = False
 
 
+class User(BaseModel):
+    username: str
+    password: str
+    currentToken: str
+
+

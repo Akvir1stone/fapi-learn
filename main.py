@@ -1,5 +1,7 @@
 from fastapi import FastAPI
 from starlette import responses, status
+from models import User
+import random, string
 
 
 app = FastAPI()
@@ -29,4 +31,9 @@ async def lots_list():
 # list of pages for payments
 
 # list of pages for authentication
+
+@app.post("/auth/login")
+def login(user: User):
+    user.currentToken = ''.join(random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(128))
+    return responses.JSONResponse({"token": f"{user.currentToken}"}, status_code=status.HTTP_202_ACCEPTED)
 
